@@ -63,6 +63,25 @@ def organizer_view():
             st.error(f"Error processing the uploaded file: {str(e)}")
             return
 
+        # Select default or custom weights for clustering
+        st.subheader("Set Custom Weights for Group Generation (Optional)")
+
+        use_custom_weights = st.checkbox("Use custom weights for clustering")
+        weights = None
+
+        if use_custom_weights:
+            weights = {}
+            weights['university'] = st.slider("University Weight", 0.0, 10.0, 0.25)
+            weights['interests'] = st.slider("Interests Weight", 0.0, 10.0, 0.75)
+            weights['preferred_role'] = st.slider("Preferred Role Weight", 0.0, 10.0, 1.0)
+            weights['availability'] = st.slider("Availability Weight", 0.0, 10.0, 0.5)
+            weights['programming_skills'] = st.slider("Programming Skills Weight", 0.0, 10.0, 2.0)
+            weights['interests_in_challenges'] = st.slider("Interests in Challenges Weight", 0.0, 10.0, 3.0)
+            weights['languages'] = st.slider("Languages Weight", 0.0, 10.0, 4.0)
+            weights['experience'] = st.slider("Experience Weight", 0.0, 10.0, 2.5)
+            weights['maturity'] = st.slider("Maturity Weight", 0.0, 10.0, 0.5)
+            weights['profile'] = st.slider("Profile Weight", 0.0, 10.0, 1.5)
+            weights['friends'] = st.slider("Friends Weight", 0.0, 10.0, 6.0)
 
         # Button to generate groups
         if st.button("Generate Groups"):
@@ -90,18 +109,14 @@ def organizer_view():
                         time.sleep(1)
 
                         st.info("Running cluster_optimization...")
-                        main4()
+                        if weights:
+                            main4(weights=weights)  # Pass custom weights if set
+                        else:
+                            main4()  # Use default weights
                         progress_bar.progress(100)
                         st.success("cluster_optimization completed!")
                         time.sleep(1)
 
-                        # Debug: Show current working directory
-                        #st.write(f"Current working directory: {os.getcwd()}")
-
-                        # Use absolute or corrected path
-                        #processed_file_path = os.path.join(os.getcwd(), "data", "best_groups.json")
-
-                        # Check if file exists
                         if os.path.exists("data/best_groups.json"):
                             with open("data/best_groups.json", "rb") as f:
                                 processed_data = f.read()
@@ -116,5 +131,6 @@ def organizer_view():
 
                     except Exception as e:
                         st.error(f"Error during group generation: {str(e)}")
+
 
 
