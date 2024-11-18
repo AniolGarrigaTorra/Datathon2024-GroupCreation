@@ -52,7 +52,7 @@ for p in participants_sencer:
     id_preference[p.name] = p.preferred_team_size
 
 best_groups_set : dict[int,list[set[str]]] = {}
-file_path = os.path.join(os.getcwd(), "data", "best_groups.pickle")
+file_path = os.path.join(os.getcwd(), "Streamlit", "data", "best_groups.pickle")
 best_groups = load_pickle(file_path)
 for n, group_size in best_groups.items():
     best_groups_set[n] = []
