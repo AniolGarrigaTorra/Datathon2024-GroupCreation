@@ -30,7 +30,7 @@ Finally, we have created a streamlit visualization that does all the proceeding.
 
 To run the project from this github repository, it is enough to run the files in the [Scripts_def](Scripts_def/) folder in this order 1. text_indexing.py, 2. text_processing_final.py, 3. Preprocessing.py and 4. cluster.optimization.py. The folder [Streamlit](Streamli/) contains the codes to run the streamlit application. The command to run it is just streamlit run home.py. The rest of folders contain jupyter notebooks which do the same as the files in the folder [Scripts_def](Scripts_def/), explained in detail and step-by-step. This notebooks are what we have used to program this project.
 
-See more details on [Figma presentation slides](https://www.figma.com/slides/zPovvst4LEnUG9MXlnL2Pg/DATATHON2024_presentation?t=ZHP3hTtY3zJTrTBT-1)
+See more details on [Figma presentation slides](https://www.figma.com/deck/zPovvst4LEnUG9MXlnL2Pg/DATATHON2024_presentation?node-id=1-374&t=Vf6D6q0Zo7odMDvE-1)
 
 
 # Prerequisites  
