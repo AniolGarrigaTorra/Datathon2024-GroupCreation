@@ -29,7 +29,7 @@ def load_pickle(path):
         print("An error occurred!!!: " + str(err))
         return None
 
-data_path = "data/datathon_participants.json"
+data_path = "Streamlit/data/datathon_participants.json"
 
 participants_sencer = load_participants(data_path)
 
